@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 services:
   nginx:
     image: nginx:latest
@@ -33,13 +33,13 @@ services:
       - ./app:/var/www/app
     working_dir: /var/www/app
     depends_on:
-      - mysql
+      - postgres
 
   postgres:
     container_name: postgres
-    image: postgres
+    image: postgres:latest
     ports:
-      - 54322:5432
+      - 5432:5432
     environment:
       POSTGRES_DB: bnb
       POSTGRES_USER: bnb
